@@ -68,7 +68,7 @@ Before you begin, ensure you have the following installed and configured:
    git clone <repository_url>
    cd ci-cd-jenkins-docker
    ```
-Configure Jenkins:
+## Configure Jenkins:
 
 Create a new pipeline job in Jenkins and point it to this repository.
 Ensure that Jenkins has the necessary credentials to access your Docker registry (e.g., Docker Hub) and your Kubernetes cluster.
@@ -88,7 +88,7 @@ Push Docker Image: Pushes the Docker image to the container registry.
 Deploy to Kubernetes: Uses an Ansible playbook to deploy the application using Kubernetes manifests.
 Configuration
 Jenkinsfile
-Environment Variables:
+## Environment Variables:
 REGISTRY: Your Docker registry (e.g., Docker Hub username).
 IMAGE_NAME: The name of the Docker image.
 IMAGE_TAG: The tag for the Docker image (e.g., latest).
@@ -96,29 +96,29 @@ DOCKER_CREDENTIALS_ID: The Jenkins credential ID for your Docker registry.
 Dockerfile (app/Dockerfile)
 Defines the base image, sets the working directory, installs dependencies, and specifies the startup command for the application.
 
-Ansible Playbook (ansible/deploy.yml)
+## Ansible Playbook (ansible/deploy.yml)
 Runs a command to apply the Kubernetes manifest. You can extend this playbook with additional tasks as needed.
 
-Kubernetes Manifest (k8s/deployment.yaml)
+## Kubernetes Manifest (k8s/deployment.yaml)
 Defines a Kubernetes Deployment for the sample application. Adjust the container image and replica count as required.
 
-Troubleshooting
+## Troubleshooting
 Jenkins Build Failures:
 Check the console output for error messages. Ensure that Jenkins has the required permissions to run Docker and Ansible commands.
 
-Docker Image Issues:
+## Docker Image Issues:
 Verify that the Dockerfile builds correctly locally before running in Jenkins.
 
-Deployment Errors:
+## Deployment Errors:
 Use kubectl get pods and kubectl logs <pod-name> to diagnose issues with the deployed application.
 
-Ansible Errors:
+## Ansible Errors:
 Run the playbook locally using ansible-playbook -i ansible/inventory.ini ansible/deploy.yml to debug.
 
-Contributing
+## Contributing
 Contributions are welcome! If you have suggestions, bug fixes, or improvements, please open an issue or submit a pull request. Please follow the project’s code style guidelines and document your changes accordingly.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 Happy Building and Deploying!
